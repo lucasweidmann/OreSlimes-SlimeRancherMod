@@ -1,16 +1,9 @@
-# Visual Studio
 .vs/
 *.suo
-
-# Build output
 bin/
 obj/
-
-# User files
 *.user
 *.userosscache
 *.sln.docstates
-
-# Unity/others (se tiver)
 [Ll]ibrary/
 [Tt]emp/
