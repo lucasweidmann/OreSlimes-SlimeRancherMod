@@ -40,6 +40,11 @@ namespace EmeraldSlime
 
         public override void PreLoad()
         {
+            TranslationPatcher.AddUITranslation("t.loading.oreslimes.tip1", "Emerald Slimes love Gilded Ginger.");
+            TranslationPatcher.AddUITranslation("t.loading.oreslimes.tip2", "Emerald Plorts store crystalline energy.");
+            TranslationPatcher.AddUITranslation("t.loading.oreslimes.tip3", "Rusty Carrots grow best in mineral soil.");
+            TranslationPatcher.AddUITranslation("t.loading.oreslimes.tip4", "Obsidian Hens are hard to see in the dark.");
+
             PlortCreation.PlortPreLoad(Ids.EMERALD_PLORT, "Emerald Plort", false);
             SpawnCreation.CreateSingleZoneSpawner(Ids.EMERALD_SLIME, ZoneDirector.Zone.DESERT, 0.02f);
 
@@ -83,7 +88,6 @@ namespace EmeraldSlime
                     )
                 );
             }
-
             HarmonyInstance.PatchAll();
         }
 
@@ -93,6 +97,14 @@ namespace EmeraldSlime
 
         public override void PostLoad()
         {
+            CLS.AddToLoading.AddSplash(TextureUtils.LoadImage("LoadingScreen.png").CreateSprite());
+            CLS.AddToLoading.AddIcon(TextureUtils.LoadImage("EmeraldSlime.png").CreateSprite());
+            CLS.AddToLoading.AddIcon(TextureUtils.LoadImage("EmeraldGordo.png").CreateSprite());
+            CLS.AddToLoading.AddLocalTipText("t.loading.oreslimes.tip1");
+            CLS.AddToLoading.AddLocalTipText("t.loading.oreslimes.tip2");
+            CLS.AddToLoading.AddLocalTipText("t.loading.oreslimes.tip3");
+            CLS.AddToLoading.AddLocalTipText("t.loading.oreslimes.tip4");
+
             var emeraldPlortObj = PlortCreation.CreatePlort(
                 "Emerald Plort",
                 Ids.EMERALD_PLORT,
